@@ -67,3 +67,8 @@
 <script src="script.js"></script>
 </body>
 </html>
+<meta property="og:title" content="STACK_TRACE — a stack-based number puzzle">
+<meta property="og:description" content="push, combine, match — don't overflow">
+<meta property="og:image" content="https://sherinshehana112.github.io/stack-trace/thumbnail.png">
+<meta property="og:url" content="https://sherinshehana112.github.io/stack-trace/">
+<meta name="twitter:card" content="summary_large_image">
