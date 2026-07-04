@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>stack_trace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+  <div class="titlebar">
+    <span class="dot"></span>
+    <span class="path">root@stack:~$ ./stack_trace --debug</span>
+  </div>
+
+  <div class="boot" id="boot">
+    <p>&gt; attaching debugger ...</p>
+    <p>&gt; 3 stacks online. push incoming values, combine tops<br>with +, −, ×, ^ to hit MATCH targets before you overflow.</p>
+    <button id="startBtn">attach &amp; run</button>
+  </div>
+
+  <div class="game" id="game" hidden>
+    <div class="hud">
+      <div class="hud-item"><span>SCORE</span><b id="hScore">0</b></div>
+      <div class="hud-item"><span>LEVEL</span><b id="hLevel">1</b></div>
+      <div class="hud-item"><span>BEST</span><b id="hBest">0</b></div>
+    </div>
+
+    <div class="targetbar">
+      <span>MATCH_TARGET</span>
+      <b id="hTarget">--</b>
+    </div>
+
+    <div class="register-row">
+      <div class="register">
+        <span>INCOMING</span>
+        <b id="hRegister">--</b>
+      </div>
+      <button id="combineBtn">COMBINE <span id="combineCount">(1)</span></button>
+    </div>
+
+    <div class="stacks" id="stacks"></div>
+
+    <div class="opRow" id="opRow" hidden>
+      <span class="opLabel">apply:</span>
+      <button class="op" data-op="+">+</button>
+      <button class="op" data-op="-">−</button>
+      <button class="op" data-op="*">×</button>
+      <button class="op" data-op="^">^</button>
+      <button class="op cancel" id="cancelCombine">cancel</button>
+    </div>
+
+    <p class="log" id="log">&nbsp;</p>
+  </div>
+
+  <div class="overlay" id="loseOverlay" hidden>
+    <p class="danger">STACK OVERFLOW</p>
+    <p>score <b id="lScore"></b> — <b id="lMatches"></b> matches — level <b id="lLevel"></b></p>
+    <p class="best" id="newBest" hidden>new best!</p>
+    <button id="retryBtn">./restart</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
